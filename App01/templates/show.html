@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trainee:Show</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <br>
+    <center><h3 class="jumbotron">Trainee Information</h3> </center><br>
+    <a href="#" class="btn btn-info">Add New Trainee</a>
+    <a href="/emailSend" class="btn btn-info">Send Email-(For Due Amount)</a>
+    <hr><br>
+    <table class="table table-border table-hover table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Trainee ID</th>
+                <th>Name</th>
+                <th>Batch</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Due's</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for trainee in trainees %}
+            <tr>
+                <td>{{trainee.TraineeID}}</td>
+                <td>{{trainee.Name}}</td>
+                <td>{{trainee.BatchNo}}</td>
+                <td>{{trainee.ContactNo}}</td>
+                <td>{{trainee.ContactAddress}}</td>
+                <td>{{trainee.EmailAddress}}</td>
+                <td>{{trainee.DueAmount}}</td>
+                <td>
+                    <a href="#" class="btn btn-info">Edit</a>
+                    <a href="/deleteRecord/{{trainee.TraineeID}}" onclick="return confirm('Are You Sure You want to Delete this Record??')" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+</body>
+</html>
